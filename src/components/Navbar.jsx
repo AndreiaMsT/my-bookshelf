@@ -4,9 +4,9 @@ import goodreadsIcon from "../assets/goodreads-icon.svg";
 export const Navbar = () => {
     const getViewBox = () => {
         if (window.innerWidth < 640) {
-          return "0 0 900 320"; // for small devices
+          return "0 0 900 320"; 
         } else {
-          return "0 80 1440 320"; // for larger devices
+          return "0 80 1440 320";
         }
       };
   return (
