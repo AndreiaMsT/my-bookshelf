@@ -1,11 +1,11 @@
 import { Navbar } from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
+import Main from "./components/Main";
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <SearchBar />
+      <Main />
     </>
   );
 };

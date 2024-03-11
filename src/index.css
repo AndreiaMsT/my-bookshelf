@@ -16,3 +16,7 @@
 svg {
   position: absolute;
 }
+
+.bg-selector{
+  background-color: rgb(246, 235, 243);
+}
