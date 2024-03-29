@@ -1,12 +1,17 @@
+
+import BookCard from "./components/BookCard";
 import { Navbar } from "./components/Navbar";
-import Main from "./components/Main";
+
+import Selector from "./components/Selector";
 
 const App = () => {
   return (
-    <>
+    <div>
       <Navbar />
-      <Main />
-    </>
+      <Selector />{" "}
+      <BookCard/>
+      
+    </div>
   );
 };
 

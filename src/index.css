@@ -9,14 +9,22 @@
 }
 
 .wave-header {
- 
   width: 100%;
   position: relative;
+  z-index: -1;
 }
 svg {
   position: absolute;
 }
 
-.bg-selector{
+.bg-selector {
   background-color: rgb(246, 235, 243);
+}
+
+/* .bg-book-card {
+  background: transparent;
+} */
+
+.bg-pink {
+  background: linear-gradient(#f5efef, #ebdce5);
 }
