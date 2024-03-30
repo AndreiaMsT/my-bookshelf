@@ -2,6 +2,7 @@
 
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
+import BookCard from './BookCard';
 
 
 const BookGrid = () => {
@@ -36,7 +37,7 @@ const BookGrid = () => {
       <h1>My Bookshelf</h1>
       <ul>
         {books.map((book) => (
-          <li key={book.id}>{book.volumeInfo.title} - {book.volumeInfo.authors} - {book.volumeInfo.categories}</li>
+          <BookCard key={book.id} {...book}/>
         ))}
       </ul>
     </div>

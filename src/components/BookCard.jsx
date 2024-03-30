@@ -30,8 +30,8 @@ const BookCard = () => {
       className="flex justify-between flex-col items-center py-[20px]  rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0  bg-pink
      "
     >
-      {books.map((book) => (
-        <div key={book.volumeInfo.id}>
+      {books.map((book, index) => (
+        <div key={index} >
           <p className="font-poppins font-normal text-[18px] leading-[32px] text-black my-10">
             {book.volumeInfo.title}
           </p>
