@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = () => {
+const Selector = ({ api }) => {
   const [books, setBooks] = useState([]);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
@@ -11,14 +12,7 @@ const Selector = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://www.googleapis.com/books/v1/users/106527888210163440438/bookshelves/1002/volumes?",
-          {
-            params: {
-              key: "AIzaSyAL_EgRFmV8iSUFDz3pKGcgCyFv_jWgLOo",
-            },
-          }
-        );
+        const response = await axios.get(`${api.base}key=${api.key}`);
 
         setBooks(response.data.items);
       } catch (error) {
@@ -80,6 +74,13 @@ const Selector = () => {
       </div>
     </div>
   );
+};
+
+Selector.propTypes = {
+  api: PropTypes.shape({
+    base: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Selector;

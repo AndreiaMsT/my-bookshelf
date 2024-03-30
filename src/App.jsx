@@ -1,22 +1,24 @@
 
-import BookCard from "./components/BookCard";
+import { useState } from "react";
 import BookGrid from "./components/BookGrid";
 import { Navbar } from "./components/Navbar";
 
 import Selector from "./components/Selector";
 
 const App = () => {
+  
 
   const [books, setBooks] = useState([]);
 
   const api = {
-    key: process.env.BOOK_API_KEY,
-    base: process.env.BOOK_API_URL,
+    key: import.meta.env.VITE_BOOK_API_KEY,
+    base: import.meta.env.VITE_BOOK_API_URL,
   };
+  
   return (
     <div>
       <Navbar />
-      <Selector />{" "}
+      <Selector api={api}/>
       <BookGrid/>
       
     </div>
