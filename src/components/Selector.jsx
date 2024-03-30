@@ -4,22 +4,24 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = ({ api }) => {
-  const [books, setBooks] = useState([]);
+const Selector = ({ api, books, setBooks }) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
 
+  const apiUrl = `${api.base}key=${api.key}`;
+  console.log(apiUrl)
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(apiUrl);
+
+      setBooks(response.data.items);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${api.base}key=${api.key}`);
-
-        setBooks(response.data.items);
-      } catch (error) {
-        console.error("Error fetching books:", error);
-      }
-    };
-
     fetchData();
   }, []);
 
@@ -64,6 +66,7 @@ const Selector = ({ api }) => {
                 if (category) {
                   setSelected(category);
                   setOpen(!open);
+                  
                 }
               }}
             >
@@ -81,6 +84,8 @@ Selector.propTypes = {
     base: PropTypes.string.isRequired,
     key: PropTypes.string.isRequired,
   }).isRequired,
+  books: PropTypes.array,
+  setBooks: PropTypes.any,
 };
 
 export default Selector;
