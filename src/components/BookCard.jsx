@@ -1,29 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-const BookCard = () => {
-  const [books, setBooks] = useState([]);
+const BookCard = ({books}) => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://www.googleapis.com/books/v1/users/106527888210163440438/bookshelves/1002/volumes?",
-          {
-            params: {
-              key: "AIzaSyAL_EgRFmV8iSUFDz3pKGcgCyFv_jWgLOo",
-            },
-          }
-        );
-
-        setBooks(response.data.items);
-      } catch (error) {
-        console.error("Error fetching books:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <div
@@ -43,21 +21,14 @@ const BookCard = () => {
           </a>{" "}
         </div>
       ))}
-      {/* <img />
-     
-      <div className="flex flex-row">
-        <img />
-        <div className="flex flex-col ml-4">
-          <h4 className="font-poppins font-semibold text-[20px] leading-[32px] text-black ">
-            Hello
-          </h4>
-          <p className="font-poppins font-normal text-[16px] leading-[24px] text-black ">
-            bye
-          </p>
-        </div>
-      </div> */}
+   
     </div>
   );
+};
+BookCard.propTypes = {
+ 
+  books: PropTypes.array,
+  
 };
 
 export default BookCard;

@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = ({ api, books, setBooks }) => {
+const Selector = ({ api, books, setBooks, selected, setSelected }) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("");
+
 
   const apiUrl = `${api.base}key=${api.key}`;
-  console.log(apiUrl)
+ 
+  
 
   const fetchData = async () => {
     try {
