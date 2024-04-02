@@ -1,30 +1,10 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = ({ api, books, setBooks, selected, setSelected }) => {
+const Selector = ({ books, selected, setSelected }) => {
   const [open, setOpen] = useState(false);
 
-
-  const apiUrl = `${api.base}key=${api.key}`;
- 
-  
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(apiUrl);
-
-      setBooks(response.data.items);
-    } catch (error) {
-      console.error("Error fetching books:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   let uniqueCategories = [];
 
@@ -54,7 +34,7 @@ const Selector = ({ api, books, setBooks, selected, setSelected }) => {
           </div>
         </div>
 
-        <ul
+        <ul 
           className={`bg-selector mt-2  max-h-60 ${
             open ? "max-h-60 " : "hidden"
           } `}
@@ -62,12 +42,12 @@ const Selector = ({ api, books, setBooks, selected, setSelected }) => {
           {uniqueCategories.map((category, index) => (
             <li
               className="p-2 hover:bg-white cursor-pointer"
+             
               key={index}
               onClick={() => {
                 if (category) {
                   setSelected(category);
                   setOpen(!open);
-                  
                 }
               }}
             >
@@ -80,13 +60,6 @@ const Selector = ({ api, books, setBooks, selected, setSelected }) => {
   );
 };
 
-Selector.propTypes = {
-  api: PropTypes.shape({
-    base: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
-  }).isRequired,
-  books: PropTypes.array,
-  setBooks: PropTypes.any,
-};
+
 
 export default Selector;
