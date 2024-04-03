@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import axios from "axios";
 
 import Selector from "./components/Selector";
+import PagesSelector from "./components/PagesSelector";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -38,10 +39,16 @@ const App = () => {
     return books.filter((book) => book.volumeInfo.categories == selected);
   };
 
+  const filterBooksByPageCount = () => {
+ 
+  };
+
   return (
     <div>
       <Navbar />
+      <h1>What do I feel like reading 💭</h1>
       <Selector books={books} selected={selected} setSelected={setSelected} />
+      <PagesSelector selected={selected} setSelected={setSelected} />
       <BookGrid books={filterBooksByGenre(selected)} />
     </div>
   );

@@ -2,28 +2,18 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = ({ books, selected, setSelected }) => {
+const PagesSelector = ({ selected, setSelected }) => {
   const [open, setOpen] = useState(false);
-
-  let uniqueCategories = [];
-
-  books.forEach((book) => {
-    book.volumeInfo.categories.forEach((category) => {
-      if (!uniqueCategories.includes(category)) {
-        uniqueCategories.push(category);
-      }
-    });
-  });
+  const numberOfPages = ["< 100 pages", "100 - 200 pages", "> 200 pages"];
 
   return (
     <div className="mt-[100px] sm:mt-[10%] flex flex-col items-center justify-center">
-     
       <div className="w-72 font-medium h-80 mt-[20px]">
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
-          {selected ? selected : "Select genre"}
+          {selected ? selected : "Select book's lenght"}
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon
@@ -38,26 +28,24 @@ const Selector = ({ books, selected, setSelected }) => {
             open ? "max-h-60 " : "hidden"
           } `}
         >
-          {uniqueCategories.map((category, index) => (
+          {numberOfPages.map((pages, index) => (
             <li
               className="p-2 hover:bg-white cursor-pointer"
               key={index}
               onClick={() => {
-                if (category) {
-                  setSelected(category);
+                if (pages) {
+                  setSelected(pages);
                   setOpen(!open);
                 }
               }}
             >
-              {category}
+              {pages}
             </li>
           ))}
         </ul>
       </div>
-
-     
     </div>
   );
 };
 
-export default Selector;
+export default PagesSelector;
