@@ -8,7 +8,8 @@ import PagesSelector from "./components/PagesSelector";
 
 const App = () => {
   const [books, setBooks] = useState([]);
-  const [selected, setSelected] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [pagecount, setPageCount] = useState("");
 
   const api = {
     key: import.meta.env.VITE_BOOK_API_KEY,
@@ -33,23 +34,43 @@ const App = () => {
   }, []);
 
   const filterBooksByGenre = () => {
-    if (!selected) {
+    if (!selectedGenre) {
       return books;
     }
-    return books.filter((book) => book.volumeInfo.categories == selected);
+    return books.filter((book) => book.volumeInfo.categories == selectedGenre);
+  };
+  const filteredBooks = () => {
+    let filteredBooks = books;
+  
+    // Filter by genre
+    if (selectedGenre) {
+      filteredBooks = filterBooksByGenre(selectedGenre);
+    }
+  
+    // Filter by page count
+    if (pagecount === "< 100 pages") {
+      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount < 100);
+    } else if (pagecount === "100 - 200 pages") {
+      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount >= 100 && book.volumeInfo.pageCount <= 200);
+    } else if (pagecount === "> 200 pages") {
+      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount > 200);
+    }
+  
+    return filteredBooks;
   };
 
-  const filterBooksByPageCount = () => {
- 
-  };
 
   return (
     <div>
       <Navbar />
       <h1>What do I feel like reading 💭</h1>
-      <Selector books={books} selected={selected} setSelected={setSelected} />
-      <PagesSelector selected={selected} setSelected={setSelected} />
-      <BookGrid books={filterBooksByGenre(selected)} />
+      <Selector
+        books={books}
+        selectedGenre={selectedGenre}
+        setSelectedGenre={setSelectedGenre}
+      />
+      <PagesSelector pageCount={pagecount} setPageCount={setPageCount} />
+      <BookGrid books={filteredBooks() } />
     </div>
   );
 };

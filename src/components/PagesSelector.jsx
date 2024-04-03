@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const PagesSelector = ({ selected, setSelected }) => {
+const PagesSelector = ({ pagecount, setPageCount }) => {
   const [open, setOpen] = useState(false);
   const numberOfPages = ["< 100 pages", "100 - 200 pages", "> 200 pages"];
 
@@ -13,7 +13,7 @@ const PagesSelector = ({ selected, setSelected }) => {
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
-          {selected ? selected : "Select book's lenght"}
+          {pagecount ? pagecount : "Select book's lenght"}
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon
@@ -34,7 +34,7 @@ const PagesSelector = ({ selected, setSelected }) => {
               key={index}
               onClick={() => {
                 if (pages) {
-                  setSelected(pages);
+                  setPageCount(pages);
                   setOpen(!open);
                 }
               }}

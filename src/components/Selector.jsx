@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const Selector = ({ books, selected, setSelected }) => {
+const Selector = ({ books, selectedGenre, setSelectedGenre }) => {
   const [open, setOpen] = useState(false);
 
   let uniqueCategories = [];
@@ -23,7 +23,7 @@ const Selector = ({ books, selected, setSelected }) => {
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
-          {selected ? selected : "Select genre"}
+          {selectedGenre ? selectedGenre : "Select genre"}
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon
@@ -44,7 +44,7 @@ const Selector = ({ books, selected, setSelected }) => {
               key={index}
               onClick={() => {
                 if (category) {
-                  setSelected(category);
+                  setSelectedGenre(category);
                   setOpen(!open);
                 }
               }}
