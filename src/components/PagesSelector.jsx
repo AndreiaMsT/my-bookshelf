@@ -13,7 +13,8 @@ const PagesSelector = ({ pagecount, setPageCount }) => {
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
-          {pagecount ? pagecount : "Select book's lenght"}
+          {pagecount ? pagecount : "Select book's length"}
+          
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon

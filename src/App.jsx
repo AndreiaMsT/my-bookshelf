@@ -39,38 +39,44 @@ const App = () => {
     }
     return books.filter((book) => book.volumeInfo.categories == selectedGenre);
   };
+
   const filteredBooks = () => {
     let filteredBooks = books;
-  
-    // Filter by genre
+
     if (selectedGenre) {
       filteredBooks = filterBooksByGenre(selectedGenre);
     }
-  
-    // Filter by page count
+
     if (pagecount === "< 100 pages") {
-      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount < 100);
+      filteredBooks = filteredBooks.filter(
+        (book) => book.volumeInfo.pageCount < 100
+      );
     } else if (pagecount === "100 - 200 pages") {
-      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount >= 100 && book.volumeInfo.pageCount <= 200);
+      filteredBooks = filteredBooks.filter(
+        (book) =>
+          book.volumeInfo.pageCount >= 100 && book.volumeInfo.pageCount <= 200
+      );
     } else if (pagecount === "> 200 pages") {
-      filteredBooks = filteredBooks.filter((book) => book.volumeInfo.pageCount > 200);
+      filteredBooks = filteredBooks.filter(
+        (book) => book.volumeInfo.pageCount > 200
+      );
     }
-  
+
     return filteredBooks;
   };
-
 
   return (
     <div>
       <Navbar />
       <h1>What do I feel like reading 💭</h1>
+
       <Selector
         books={books}
         selectedGenre={selectedGenre}
         setSelectedGenre={setSelectedGenre}
       />
-      <PagesSelector pageCount={pagecount} setPageCount={setPageCount} />
-      <BookGrid books={filteredBooks() } />
+      <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />
+      {filteredBooks().length === 0 ? <p>No Books Found</p> : <BookGrid books={filteredBooks()} />}
     </div>
   );
 };
