@@ -71,7 +71,7 @@ const App = () => {
     <div>
       <Navbar />
       <Hero/>
-      <div className="flex flex-col justify-center align-items-center text-center ">
+      <div >
         
         <div>
           <GenderSelector

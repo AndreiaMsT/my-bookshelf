@@ -1,5 +1,5 @@
 import pileOfBooks from "../assets/books.svg";
-import goodreadsIcon from "../assets/goodreads-icon.svg";
+
 
 export const Navbar = () => {
     const getViewBox = () => {
@@ -28,17 +28,7 @@ export const Navbar = () => {
             />
           </p>
         </div>
-        <a
-          href="https://www.goodreads.com/user/show/135436782-andreia-t"
-          className="relative z-10"
-          target="_blank"
-        >
-          <img
-            src={goodreadsIcon}
-            className="h-[30px] w-[30px]"
-            alt="goodreads icon"
-          />
-        </a>
+      
       </nav>
     </div>
   );
