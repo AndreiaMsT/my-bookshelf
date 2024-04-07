@@ -6,7 +6,7 @@ import axios from "axios";
 import GenderSelector from "./components/GenderSelector";
 import PagesSelector from "./components/PagesSelector";
 
-import Hero from "./Hero";
+import Hero from "./components/Hero";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -70,10 +70,9 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Hero/>
-      <div >
-        
-        <div>
+      <Hero />
+      <div>
+        <div className="flex flex-row align-center justify-around m-[5%] sm:flex-col">
           <GenderSelector
             books={books}
             selectedGenre={selectedGenre}

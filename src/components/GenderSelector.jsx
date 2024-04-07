@@ -16,9 +16,9 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   });
 
   return (
-    <div className="mt-[100px] sm:mt-[10%] flex flex-col items-center justify-center">
+    <div className="mt-[100px]  sm:mt-[10%] flex flex-col items-center justify-center">
      
-      <div className="w-72 font-medium h-80 mt-[20px]">
+      <div className="w-72 font-medium h-80 sm:h-40 mt-[20px]">
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"

@@ -1,5 +1,5 @@
-import bookLover from "./assets/Book lover.svg";
-import goodreadsIcon from "./assets/goodreads-icon.svg";
+import bookLover from "../assets/Book lover.svg";
+import goodreadsIcon from "../assets/goodreads-icon.svg";
 
 const Hero = () => {
   return (
