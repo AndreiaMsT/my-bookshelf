@@ -13,8 +13,7 @@ export const Navbar = () => {
     <div className="relative wave-header">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox={getViewBox()}>
         <path
-          fill="#ff5500"
-          fillOpacity="0.1"
+          fill="#F6EBF3"
           d="M0,128L60,144C120,160,240,192,360,192C480,192,600,160,720,144C840,128,960,128,1080,133.3C1200,139,1320,149,1380,154.7L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         ></path>
       </svg>

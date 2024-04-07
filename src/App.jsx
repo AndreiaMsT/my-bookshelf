@@ -3,8 +3,10 @@ import BookGrid from "./components/BookGrid";
 import { Navbar } from "./components/Navbar";
 import axios from "axios";
 
-import Selector from "./components/Selector";
+import GenderSelector from "./components/GenderSelector";
 import PagesSelector from "./components/PagesSelector";
+
+import Hero from "./Hero";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -68,15 +70,24 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <h1>What do I feel like reading 💭</h1>
+      <Hero/>
+      <div className="flex flex-col justify-center align-items-center text-center ">
+        
+        <div>
+          <GenderSelector
+            books={books}
+            selectedGenre={selectedGenre}
+            setSelectedGenre={setSelectedGenre}
+          />
 
-      <Selector
-        books={books}
-        selectedGenre={selectedGenre}
-        setSelectedGenre={setSelectedGenre}
-      />
-      <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />
-      {filteredBooks().length === 0 ? <p>No Books Found</p> : <BookGrid books={filteredBooks()} />}
+          <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />
+        </div>
+      </div>
+      {filteredBooks().length === 0 ? (
+        <p>No Books Found</p>
+      ) : (
+        <BookGrid books={filteredBooks()} />
+      )}
     </div>
   );
 };

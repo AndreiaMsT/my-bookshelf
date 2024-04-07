@@ -18,7 +18,7 @@ svg {
 }
 
 .bg-selector {
-  background-color: rgb(246, 235, 243);
+  background-color: #F6EBF3;
 }
 
 /* .bg-book-card {
@@ -26,5 +26,5 @@ svg {
 } */
 
 .bg-pink {
-  background: linear-gradient(#f5efef, #ebdce5);
+  background: linear-gradient(#fbfbfb, #F6EBF3);
 }
