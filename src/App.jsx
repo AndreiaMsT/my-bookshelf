@@ -72,7 +72,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <div>
-        <div className="flex flex-row align-center justify-around m-[5%] sm:flex-col">
+        <div className="flex flex-row align-center justify-around  sm:flex-col">
           <GenderSelector
             books={books}
             selectedGenre={selectedGenre}
@@ -83,7 +83,7 @@ const App = () => {
         </div>
       </div>
       {filteredBooks().length === 0 ? (
-        <p>No Books Found</p>
+        <p className="text-center mb-10 text-3xl font-extrabold  ">No Books Found!</p>
       ) : (
         <BookGrid books={filteredBooks()} />
       )}
