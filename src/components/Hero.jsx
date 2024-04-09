@@ -8,7 +8,7 @@ const Hero = () => {
         <h1 className="text-3xl font-extrabold mb-[20px] sm:text-center">What do I feel like reading? 💭</h1>
         <p className="text-lg mb-[20px]">
           This is my personal library where I can select my next read from the
-          books I own.<br/>I utilize Google Books to access my library.
+          books I own.<br/>Using Google Books API to access my library.
         </p>
         <a
           href="https://www.goodreads.com/user/show/135436782-andreia-t"
