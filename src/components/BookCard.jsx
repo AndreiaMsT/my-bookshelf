@@ -1,5 +1,4 @@
 const BookCard = ({ books }) => {
-  console.log("bookcard", books);
   const description = books.volumeInfo.description;
   return (
     <div
@@ -31,9 +30,6 @@ const BookCard = ({ books }) => {
             </a>
           )}
         </p>
-        <p className="mb-2 ">
-          <span className="font-bold">Pages:</span> {books.volumeInfo.pageCount}{" "}
-        </p>
         <a
           className="underline underline-offset-1 font-bold"
           target="_blank"
@@ -41,6 +37,9 @@ const BookCard = ({ books }) => {
         >
           Preview
         </a>{" "}
+        <p className="mt-2 ">
+          <span className="font-bold">Pages:</span> {books.volumeInfo.pageCount}{" "}
+        </p>
       </div>
     </div>
   );

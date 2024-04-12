@@ -24,7 +24,7 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
           {selectedGenre ? selectedGenre : "Select genre"}
-          {console.log("selectgenre",selectedGenre)}
+          
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon
