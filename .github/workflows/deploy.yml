@@ -19,7 +19,9 @@ jobs:
         with:
           node-version: 16
 
-  
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
       - name: Build project
         run: |
             npm install
@@ -52,4 +54,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ./dist
+          publish_dir: ./dist
