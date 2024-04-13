@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
+  
       - name: Build project
-        run: npm run build
+        run: |
+            npm install
+            npm run-script build
         env:
           VITE_BOOK_API_KEY: ${{secrets.VITE_BOOK_API_KEY}}
           VITE_BOOK_API_URL: ${{secrets.VITE_BOOK_API_URL}}
@@ -48,7 +48,8 @@ jobs:
           path: ./dist
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          BRANCH: gh-pages
+          FOLDER: ./dist
