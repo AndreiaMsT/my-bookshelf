@@ -8,8 +8,8 @@ const PagesSelector = ({ pagecount, setPageCount }) => {
   
 
   return (
-    <div className="sm:mt-[10%] flex flex-col items-center justify-center ">
-      <div className={`w-72 font-medium mt-[20px] ${open ? 'sm:h-40' : 'sm:h-20'}`}>
+    <div className="sm:mt-[10%] flex flex-col items-center justify-center">
+      <div className={`w-72 font-medium mt-[20px] h-50 ${open ? 'sm:h-40' : 'sm:h-20'}`}>
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"

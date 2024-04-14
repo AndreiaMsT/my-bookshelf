@@ -4,7 +4,6 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   const [open, setOpen] = useState(false);
- 
 
   let uniqueCategories = [];
 
@@ -18,14 +17,17 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
 
   return (
     <div className="sm:mt-[10%] flex flex-col items-center justify-center">
-     
-      <div className={`w-72 font-medium mt-[20px] ${open ? 'sm:h-40' : 'sm:h-20'}`}>
+      <div
+        className={`w-72 font-medium mt-[20px]  ${
+          open ? "sm:h-40" : "sm:h-20"
+        }`}
+      >
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
         >
           {selectedGenre ? selectedGenre : "Select genre"}
-          
+
           <div className="flex items-center ">
             {" "}
             <FontAwesomeIcon
@@ -56,8 +58,6 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
           ))}
         </ul>
       </div>
-
-     
     </div>
   );
 };
