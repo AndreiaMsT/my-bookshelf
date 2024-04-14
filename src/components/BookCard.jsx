@@ -16,6 +16,7 @@ const BookCard = ({ books }) => {
             className="mb-5"
           />
         </div>
+        <p className="mb-2 "><span className="font-bold">Author:</span> {books.volumeInfo.authors}</p>
         <p className="mb-2">
           {description.length > 200
             ? description.substring(0, 200) + "..."
