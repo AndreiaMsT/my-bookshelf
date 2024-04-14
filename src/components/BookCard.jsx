@@ -1,3 +1,4 @@
+import ReadingGlasses from "../assets/ReadingGlasses.svg";
 const BookCard = ({ books }) => {
   const description = books.volumeInfo.description;
   return (
@@ -11,24 +12,36 @@ const BookCard = ({ books }) => {
             {books.volumeInfo.title}
           </p>
           <img
-            src={books.volumeInfo.imageLinks.thumbnail}
+            src={
+              books.volumeInfo.imageLinks.thumbnail
+                ? books.volumeInfo.imageLinks.thumbnail
+                : ReadingGlasses
+            }
             alt="books"
             className="mb-5"
           />
         </div>
-        <p className="mb-2 "><span className="font-bold">Author:</span> {books.volumeInfo.authors}</p>
+        <p className="mb-2 ">
+          <span className="font-bold">Author:</span> {books.volumeInfo.authors}
+        </p>
         <p className="mb-2">
-          {description.length > 200
-            ? description.substring(0, 200) + "..."
-            : description}
-          {description.length > 200 && (
-            <a
-              href={books.volumeInfo.infoLink}
-              target="_blank"
-              className="font-bold"
-            >
-              Full Description
-            </a>
+          {description ? (
+            description.length > 200 ? (
+              <>
+                {description.substring(0, 200)}...
+                <a
+                  href={books.volumeInfo.infoLink}
+                  target="_blank"
+                  className="font-bold"
+                >
+                  Full Description
+                </a>
+              </>
+            ) : (
+              description
+            )
+          ) : (
+            "No description"
           )}
         </p>
         <a
@@ -39,8 +52,11 @@ const BookCard = ({ books }) => {
           Preview
         </a>{" "}
         <p className="mt-2 ">
-          {books.volumeInfo.pageCount ?
-          (<span className="font-bold">Pages: {books.volumeInfo.pageCount}{" "}</span>):null }
+          {books.volumeInfo.pageCount ? (
+            <span className="font-bold">
+              Pages: {books.volumeInfo.pageCount}{" "}
+            </span>
+          ) : null}
         </p>
       </div>
     </div>
