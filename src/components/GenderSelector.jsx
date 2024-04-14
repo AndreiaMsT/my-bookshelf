@@ -4,6 +4,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   const [open, setOpen] = useState(false);
+ 
 
   let uniqueCategories = [];
 
@@ -16,9 +17,9 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   });
 
   return (
-    <div className="mt-[100px]  sm:mt-[10%] flex flex-col items-center justify-center">
+    <div className="sm:mt-[10%] flex flex-col items-center justify-center">
      
-      <div className="w-72 font-medium h-80 sm:h-40 mt-[20px]">
+      <div className={`w-72 font-medium mt-[20px] ${open ? 'sm:h-40' : 'sm:h-20'}`}>
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
@@ -36,7 +37,7 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
 
         <ul
           className={`bg-selector mt-2  max-h-60 ${
-            open ? "max-h-60 " : "hidden"
+            open ? "max-h-40 " : "hidden"
           } `}
         >
           {uniqueCategories.map((category, index) => (

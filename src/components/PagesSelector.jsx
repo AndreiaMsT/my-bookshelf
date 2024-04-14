@@ -5,10 +5,11 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 const PagesSelector = ({ pagecount, setPageCount }) => {
   const [open, setOpen] = useState(false);
   const numberOfPages = ["< 100 pages", "100 - 200 pages", "> 200 pages"];
+  
 
   return (
-    <div className="mt-[100px] sm:mt-[10%] flex flex-col items-center justify-center">
-      <div className="w-72 font-medium h-80 mt-[20px]">
+    <div className="sm:mt-[10%] flex flex-col items-center justify-center ">
+      <div className={`w-72 font-medium mt-[20px] ${open ? 'sm:h-40' : 'sm:h-20'}`}>
         <div
           onClick={() => setOpen(!open)}
           className="bg-pink w-full p-2 flex flex-row justify-around rounded"
@@ -26,7 +27,7 @@ const PagesSelector = ({ pagecount, setPageCount }) => {
 
         <ul
           className={`bg-selector mt-2  max-h-60 ${
-            open ? "max-h-60 " : "hidden"
+            open ? "max-h-40 " : "hidden"
           } `}
         >
           {numberOfPages.map((pages, index) => (
