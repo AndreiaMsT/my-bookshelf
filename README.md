@@ -14,8 +14,7 @@ Get detailed information about each book, including the author, description, pre
 
 ## Screenshots
 
-![Captura de ecrã de 2024-04-14 17-32-07](https://github.com/AndreiaMsT/my-bookshelf/assets/115187957/57e284b0-32f4-47ad-8c9d-9f4b66a22cc5)
-
+![Captura de ecrã de 2024-04-14 17-34-26](https://github.com/AndreiaMsT/my-bookshelf/assets/115187957/00b10ac1-b9c1-4053-9b93-177eee32678e)
 
 
 
