@@ -7,6 +7,7 @@ import GenderSelector from "./components/GenderSelector";
 import PagesSelector from "./components/PagesSelector";
 
 import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -87,6 +88,7 @@ const App = () => {
       ) : (
         <BookGrid books={filteredBooks()} />
       )}
+      <Footer/>
     </div>
   );
 };
