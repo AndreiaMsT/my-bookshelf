@@ -18,5 +18,4 @@ Get detailed information about each book, including the author, description, pre
 
 
 
-![Screenshot 2](/screenshots/screenshot2.png)
-*Caption for Screenshot 2*
+
