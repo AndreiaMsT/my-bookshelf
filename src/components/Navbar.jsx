@@ -20,7 +20,7 @@ export const Navbar = () => {
       <nav className="relative z-10 w-full flex justify-between items-center p-4">
         <div className="flex items-center">
           <p className="flex items-center">
-            BookishMoods{" "}
+            ReadingMoods{" "}
             <img
               src={pileOfBooks}
               className="h-[30px] w-[30px] ml-2"
