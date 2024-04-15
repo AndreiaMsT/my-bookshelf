@@ -26,7 +26,7 @@ const PagesSelector = ({ pagecount, setPageCount }) => {
         </div>
 
         <ul
-          className={`bg-selector mt-2  max-h-60 ${
+          className={`bg-selector mt-2 max-h-60 ${
             open ? "max-h-40 " : "hidden"
           } `}
         >
