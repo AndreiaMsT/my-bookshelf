@@ -79,22 +79,22 @@ const App = () => {
       <Navbar />
       <Hero />
       <div>
-        <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%]">
+        <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%] gap-2">
           <GenderSelector
             books={books}
             selectedGenre={selectedGenre}
             setSelectedGenre={setSelectedGenre}
           />
-
-          <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />
+          <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />{" "}
+          <button
+            className="sm:mt-[10%] sm:ml-[5%] w-72 font-medium mt-[20px] bg-pink p-2 rounded hover:shadow-lg uppercase tracking-[0.25em]"
+            onClick={handleRandomBook}
+          >
+            Random Book
+          </button>
         </div>
       </div>
-      <button
-        className="justify-center bg-pink w-1/3 p-2 rounded"
-        onClick={handleRandomBook}
-      >
-        Random Book
-      </button>
+
       {randomBook ? (
         <div>
           <BookGrid books={[randomBook]} />
