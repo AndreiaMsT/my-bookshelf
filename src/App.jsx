@@ -2,19 +2,17 @@ import { useState, useEffect } from "react";
 import BookGrid from "./components/BookGrid";
 import { Navbar } from "./components/Navbar";
 import axios from "axios";
-
 import GenderSelector from "./components/GenderSelector";
 import PagesSelector from "./components/PagesSelector";
-
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-
 import empty from "./assets/Empty.svg";
 
 const App = () => {
   const [books, setBooks] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
   const [pagecount, setPageCount] = useState("");
+  const [randomBook, setRandomBook] = useState(null);
 
   const api = {
     key: import.meta.env.VITE_BOOK_API_KEY,
@@ -45,11 +43,17 @@ const App = () => {
     return books.filter((book) => book.volumeInfo.categories == selectedGenre);
   };
 
+  const handleRandomBook = () => {
+    const book =
+      filteredBooks()[Math.floor(Math.random() * filteredBooks().length)];
+    setRandomBook(book);
+  };
+
   const filteredBooks = () => {
     let filteredBooks = books;
 
     if (selectedGenre) {
-      filteredBooks = filterBooksByGenre(selectedGenre);
+      filteredBooks = filterBooksByGenre();
     }
 
     if (pagecount === "< 100 pages") {
@@ -85,10 +89,20 @@ const App = () => {
           <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />
         </div>
       </div>
-      {filteredBooks().length === 0 ? (
+      <button
+        className="justify-center bg-pink w-1/3 p-2 rounded"
+        onClick={handleRandomBook}
+      >
+        Random Book
+      </button>
+      {randomBook ? (
+        <div>
+          <BookGrid books={[randomBook]} />
+        </div>
+      ) : filteredBooks().length === 0 ? (
         <div className="flex flex-col justify-center items-center ">
           <p className="text-3xl font-extrabold">No Books Found!</p>
-          <img className="w-1/3 h-auto sm:w-1/2" src={empty} />
+          <img className="w-1/3 h-auto sm:w-1/2" src={empty} alt="Empty" />
         </div>
       ) : (
         <BookGrid books={filteredBooks()} />
