@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import BookGrid from "./components/BookGrid";
 import { Navbar } from "./components/Navbar";
 import axios from "axios";
-import GenderSelector from "./components/GenderSelector";
+import GenreSelector from "./components/GenreSelector";
 import PagesSelector from "./components/PagesSelector";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
@@ -78,24 +78,23 @@ const App = () => {
     <div>
       <Navbar />
       <Hero />
-      
-        <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%] sm:mb-[20%] gap-2">
-          <GenderSelector
-            books={books}
-            selectedGenre={selectedGenre}
-            setSelectedGenre={setSelectedGenre}
-          />
-          <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />{" "}
-          <div className="sm:mt-[35%] flex flex-col items-center justify-center">
-            <button
-              className=" flex items-center justify-center w-72 font-medium mt-[20px] bg-pink p-2 rounded hover:shadow-lg uppercase tracking-[0.25em]"
-              onClick={handleRandomBook}
-            >
-              Random Book
-            </button>
-          </div>
+
+      <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%] sm:mb-[20%] gap-2">
+        <GenreSelector
+          books={books}
+          selectedGenre={selectedGenre}
+          setSelectedGenre={setSelectedGenre}
+        />
+        <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />{" "}
+        <div className="sm:mt-[35%] flex flex-col items-center justify-center">
+          <button
+            className=" flex items-center justify-center w-72 font-medium mt-[20px] bg-pink p-2 rounded hover:shadow-lg uppercase tracking-[0.25em]"
+            onClick={handleRandomBook}
+          >
+            Random Book
+          </button>
         </div>
-      
+      </div>
 
       {randomBook ? (
         <div>

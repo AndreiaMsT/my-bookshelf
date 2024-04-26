@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
+const GenreSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   const [open, setOpen] = useState(false);
 
   let uniqueCategories = [];
@@ -62,4 +62,4 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   );
 };
 
-export default GenderSelector;
+export default GenreSelector;
