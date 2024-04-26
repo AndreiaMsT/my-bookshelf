@@ -52,7 +52,7 @@ const BookCard = ({ books }) => {
           Preview
         </a>{" "}
         <p className="mt-2 ">
-          {books.volumeInfo.pageCount ? (
+          {books.volumeInfo.pageCount > 0 ? (
             <span className="font-bold">
               Pages: {books.volumeInfo.pageCount}{" "}
             </span>

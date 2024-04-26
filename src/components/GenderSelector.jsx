@@ -16,11 +16,11 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
   });
 
   return (
-    <div className="sm:mt-[10%] flex flex-col items-center justify-center">
+    <div className=" sm:mt-[10%] flex flex-col items-center justify-center relative">
       <div
         className={`w-72 font-medium mt-[20px]  ${
           open ? "sm:h-40" : "sm:h-20"
-        }`}
+        }relative`}
       >
         <div
           onClick={() => setOpen(!open)}
@@ -40,7 +40,7 @@ const GenderSelector = ({ books, selectedGenre, setSelectedGenre }) => {
         <ul
           className={`bg-selector mt-2  max-h-60 ${
             open ? "max-h-40 " : "hidden"
-          } `}
+          } absolute top-full left-0 right-0 z-10 overflow-y-auto`}
         >
           {uniqueCategories.map((category, index) => (
             <li

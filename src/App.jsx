@@ -78,26 +78,29 @@ const App = () => {
     <div>
       <Navbar />
       <Hero />
-      <div>
-        <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%] gap-2">
+      
+        <div className="flex flex-row align-center justify-around sm:flex-col mb-[20%] gap-2">
           <GenderSelector
             books={books}
             selectedGenre={selectedGenre}
             setSelectedGenre={setSelectedGenre}
           />
           <PagesSelector pagecount={pagecount} setPageCount={setPageCount} />{" "}
-          <button
-            className="sm:mt-[10%] sm:ml-[5%] w-72 font-medium mt-[20px] bg-pink p-2 rounded hover:shadow-lg uppercase tracking-[0.25em]"
-            onClick={handleRandomBook}
-          >
-            Random Book
-          </button>
+          <div className="sm:mt-[35%] flex flex-col items-center justify-center">
+            <button
+              className=" flex items-center justify-center w-72 font-medium mt-[20px] bg-pink p-2 rounded hover:shadow-lg uppercase tracking-[0.25em]"
+              onClick={handleRandomBook}
+            >
+              Random Book
+            </button>
+          </div>
         </div>
-      </div>
+      
 
       {randomBook ? (
         <div>
           <BookGrid books={[randomBook]} />
+          {console.log(randomBook)}
         </div>
       ) : filteredBooks().length === 0 ? (
         <div className="flex flex-col justify-center items-center ">
