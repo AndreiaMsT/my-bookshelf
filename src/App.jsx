@@ -79,7 +79,7 @@ const App = () => {
       <Navbar />
       <Hero />
       
-        <div className="flex flex-row align-center justify-around sm:flex-col mb-[20%] gap-2">
+        <div className="flex flex-row align-center justify-around sm:flex-col mb-[10%] sm:mb-[20%] gap-2">
           <GenderSelector
             books={books}
             selectedGenre={selectedGenre}
